@@ -1,1 +1,17 @@
-theme: jekyll-theme-minimal
+theme:          jekyll-theme-minimal
+ 
+title:          "Threeify"
+description:    "A Typescript 3D library."
+url:            "https://threeify.org"
+future:         true
+permalink:      pretty
+
+# Pagination
+paginate:       5
+
+# Sass converter configuration
+sass:
+  style:        compressed
+
+# Local Server
+host:           localhost # same as default value '127.0.0.1' but reads better
