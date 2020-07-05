@@ -3,7 +3,7 @@ import { join } from 'path'
 import glob from 'glob'
 import path from 'path'
 
-const examplesDirectory = join(process.cwd(), '_examples')
+const examplesDirectory = join(process.cwd(), '/public/examples')
 const globSearch = examplesDirectory + `/**/example.json`;
 let examples = undefined;
 
@@ -21,7 +21,7 @@ export async function getExamples() {
                     title: exampleJson.en.name,
                     description: exampleJson.en.description,
                     keywords: exampleJson.en.keywords,
-                    directory: path.relative( process.cwd(), path.dirname(exampleFileName) )
+                    directory: path.relative( process.cwd() + "/public", path.dirname(exampleFileName) )
                 };
                 localExamples.push( example );
             });

@@ -13,7 +13,7 @@ export default function Example({ example }) {
   return (
     <div className="container">
       <Head>
-        <title>Threeify - A Modern and Fast 3D Typescript Library</title>
+        <title>{example.title} - Threeify</title>
         <link rel="icon" href="/favicon.ico" />
         <script type="module" src={indexJs}></script>
      </Head>
