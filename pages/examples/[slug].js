@@ -19,10 +19,27 @@ export default function Example({ example }) {
      </Head>
 
       <main>
-        <h1 className="title">
+        <h1>
           {example.title}
         </h1>
+        <p className="description">
+          {example.description}
+        </p>
+        <p className="code">
+          bundle: {example.bundleSize}, minified: {example.minifiedSize}, brotli: {example.compressedFileSize}, 
+        </p>
+        <canvas id="threeify-framebuffer"/>
       </main>
+
+      <footer>
+        <a
+          href="https:/github.com/threeify/threeify"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Threeify on Github
+        </a>
+      </footer>
     </div>
   )
 }

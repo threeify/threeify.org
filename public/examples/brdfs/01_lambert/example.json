@@ -1,8 +1,0 @@
-{
-  "slug": "brdf_lambertian",
-  "en": {
-    "name": "Lambertian Diffuse BRDF",
-    "description": "",
-    "keywords": [ "brdf", "lambert", "lambertian", "diffuse" ]
-  }
-}
