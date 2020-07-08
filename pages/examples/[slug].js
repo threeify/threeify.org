@@ -48,7 +48,7 @@ export default function Example({ example }) {
         </main>
 
         <footer>
-          <a href="https:/github.com/threeify/threeify" target="_blank">
+          <a href="https://github.com/threeify/threeify" target="_blank">
             Threeify on Github
           </a>
         </footer>
