@@ -1,1 +1,1 @@
-{"slug":"brdf_sheen","en":{"name":"Sheen BRDF","description":"A test of a Charlie-based Sheen BRDF.  Sheen is useful rendering realistic cloth.","keywords":["brdf","sheen","fabric","cloth"]},"bundleSize":113215,"minifiedSize":78465,"compressedFileSize":15789}
+{"slug":"brdf_sheen","theme":"dark","en":{"name":"Sheen BRDF","description":"A test of a Charlie-based Sheen BRDF.  Sheen is useful rendering realistic cloth.","keywords":["brdf","sheen","fabric","cloth"]},"bundleSize":114156,"minifiedSize":79007,"compressedFileSize":15951}

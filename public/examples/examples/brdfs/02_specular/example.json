@@ -1,1 +1,1 @@
-{"slug":"brdf_specular_ggx","en":{"name":"GGX Specular BRDF","description":"A test of the GGX specular BRDF layered on top of the Lambertian diffuse BRDF.","keywords":["brdf","specular","ggx","reflection"]},"bundleSize":115036,"minifiedSize":77617,"compressedFileSize":15792}
+{"slug":"brdf_specular_ggx","theme":"dark","en":{"name":"GGX Specular BRDF","description":"A test of the GGX specular BRDF layered on top of the Lambertian diffuse BRDF.","keywords":["brdf","specular","ggx","reflection"]},"bundleSize":115977,"minifiedSize":78159,"compressedFileSize":15919}
