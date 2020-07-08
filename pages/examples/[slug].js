@@ -4,15 +4,15 @@ import Head from "next/head";
 import { getExampleBySlug, getExamples } from "../../lib/api";
 
 function formatBytes(bytes, decimals = 2) {
-  if (bytes === 0) return '0 Bytes';
+  if (bytes === 0) return "0 Bytes";
 
   const k = 1024;
   const dm = decimals < 0 ? 0 : decimals;
-  const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
+  const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
 
   const i = Math.floor(Math.log(bytes) / Math.log(k));
 
-  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + ' ' + sizes[i];
+  return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
 }
 
 export default function Example({ example }) {
@@ -29,17 +29,20 @@ export default function Example({ example }) {
         <link rel="icon" href="/favicon.ico" />
         <script type="module" src={indexJs}></script>
       </Head>
-
       <main>
+        <p className="code">
+          <a href="/">Threeify Home</a>
+        </p>
         <h1>{example.title}</h1>
         <p className="description">{example.description}</p>
         <p className="code">
-          bundle: {formatBytes(example.bundleSize)}, minified: {formatBytes(example.minifiedSize)},
-          brotli: {formatBytes(example.compressedSize)},
+          bundle: {formatBytes(example.bundleSize)}
+          <br />
+          minified: {formatBytes(example.minifiedSize)}
+          <br />
+          brotli: {formatBytes(example.compressedSize)}
         </p>
-        <div>
         <canvas id="threeify-framebuffer" />
-        </div>
       </main>
 
       <footer>
