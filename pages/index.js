@@ -25,12 +25,11 @@ export default function Home(props) {
       </main>
 
       <footer>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
+      <a
+          href="https:/github.com/threeify/threeify"
           target="_blank"
-          rel="noopener noreferrer"
         >
-          Powered by{" "}
+          Threeify on Github
         </a>
       </footer>
     </div>
