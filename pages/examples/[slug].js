@@ -30,6 +30,8 @@ export default function Example({ example }) {
           <title>{example.title} - Threeify</title>
           <link rel="icon" href="/favicon.ico" />
           <script type="module" src={indexJs}></script>
+          <meta name="description" content={example.description}/>
+          <meta name="keywords" content={example.keywords.concat(['3D','typescript','javascript','example']).join(',')}/>
         </Head>
         <main>
           <p className="code">

@@ -10,8 +10,11 @@ export default function Home(props) {
         <Head>
           <title>Threeify - A Modern and Fast 3D Typescript Library</title>
           <link rel="icon" href="/favicon.ico" />
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+     
+          <meta name="description" content="A Modern and Fast 3D Typescript Library"/>
+          <meta name="keywords" content="threeify,3D,typescript,javascript"/>
+
+          </Head>
 
         <main>
           <h1 className="title">Introducing Threeify!</h1>
