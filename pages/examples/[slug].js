@@ -44,7 +44,7 @@ export default function Example({ example }) {
             <br />
             brotli: {formatBytes(example.compressedSize)}
           </p>
-          <canvas id="threeify-framebuffer" width="800px" height="800px"/>
+          <canvas  className="description" id="threeify-framebuffer" width="800px" height="800px" />
         </main>
 
         <footer>
