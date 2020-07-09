@@ -7,6 +7,7 @@ export default function ExampleGrid(props) {
       title={example.title}
       slug={example.slug}
       description={example.description}
+      theme={example.theme}
     />
   ));
   return <div className="example-grid">{exampleCards}</div>;

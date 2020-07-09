@@ -1,8 +1,7 @@
-import { useRouter } from "next/router";
 import ErrorPage from "next/error";
 import Head from "next/head";
+import { useRouter } from "next/router";
 import { getExampleBySlug, getExamples } from "../../lib/api";
-import Layout from "../../components/Layout";
 
 function formatBytes(bytes, decimals = 2) {
   if (bytes === 0) return "0 Bytes";
@@ -24,38 +23,46 @@ export default function Example({ example }) {
   const indexJs = `/${example.directory}/index.js`;
 
   return (
-    <Layout>
-      <div className="container">
-        <Head>
-          <title>{example.title} - Threeify</title>
-          <link rel="icon" href="/favicon.ico" />
-          <script type="module" src={indexJs}></script>
-          <meta name="description" content={example.description}/>
-          <meta name="keywords" content={example.keywords.concat(['3D','typescript','javascript','example']).join(',')}/>
-        </Head>
-        <main>
-          <p className="code">
-            <a href="/">Threeify Home</a>
-          </p>
-          <h1>{example.title}</h1>
-          <p className="description">{example.description}</p>
-          <p className="code">
-            bundle: {formatBytes(example.bundleSize)}
-            <br />
-            minified: {formatBytes(example.minifiedSize)}
-            <br />
-            brotli: {formatBytes(example.compressedSize)}
-          </p>
-          <canvas  className="description" id="threeify-framebuffer" width="800px" height="800px" />
-        </main>
-
-        <footer>
-          <a href="https://github.com/threeify/threeify" target="_blank">
-            Threeify on Github
-          </a>
-        </footer>
-      </div>
-    </Layout>
+    <div>
+      <Head>
+        <title>{example.title} - Threeify</title>
+        <link rel="icon" href="/favicon.ico" />
+        <script type="module" src={indexJs}></script>
+        <meta name="description" content={example.description} />
+        <meta
+          name="keywords"
+          content={example.keywords
+            .concat(["3D", "typescript", "javascript", "example"])
+            .join(",")}
+        />
+      </Head>
+      <p className="code">
+        <a href="/">Threeify Home</a>
+      </p>
+      <h1>{example.title}</h1>
+      <p className="description">{example.description}</p>
+      <p className="code">
+        <a href={example.githubUrl}>Source</a>
+      </p>
+      <canvas
+        className="description"
+        id="threeify-framebuffer"
+        width="800px"
+        height="800px"
+      />
+      <p className="code">
+        bundle: {formatBytes(example.bundleSize)}
+        <br />
+        minified: {formatBytes(example.minifiedSize)}
+        <br />
+        brotli: {formatBytes(example.compressedSize)}
+      </p>
+      <p>
+        <a href="https://github.com/threeify/threeify" target="_blank">
+          Threeify on Github
+        </a>
+      </p>
+    </div>
   );
 }
 
