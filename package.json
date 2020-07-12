@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "sync": "node --experimental-modules sync.mjs -i ../threeify -o ./public -m -c -v 0"
   },
   "dependencies": {
     "glob": "^7.1.6",
@@ -13,5 +14,12 @@
     "react": "16.13.1",
     "react-dom": "16.13.1",
     "react-ga": "^3.1.2"
+  },
+  "devDependencies": {
+    "make-dir": "^3.1.0",
+    "puppeteer": "^5.0.0",
+    "rollup": "^2.21.0",
+    "terser": "^4.8.0",
+    "threeify-glsl-transpiler": "^1.1.12"
   }
 }
