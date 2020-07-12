@@ -45,7 +45,7 @@ export default function Example({ example }) {
         <a href={example.githubUrl}>Source</a>
       </p>
       <canvas
-        className="description"
+        className="code"
         id="threeify-framebuffer"
         width="800px"
         height="800px"
