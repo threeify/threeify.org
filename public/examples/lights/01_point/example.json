@@ -1,1 +1,0 @@
-{"slug":"point_light","theme":"dark","en":{"name":"Point Light","description":"A point light has an intensity-color, a position and range.","keywords":["light","point","punctual"]},"githubUrl":"https://github.com/threeify/threeify/blob/master/src//examples/lights/01_point/index.ts","bundleSize":119770,"minifiedSize":80965,"compressedFileSize":16235}

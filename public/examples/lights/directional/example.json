@@ -1,0 +1,1 @@
+{"slug":"directional_light","theme":"dark","en":{"name":"Directional Light","description":"A directional light is represented by a direction and an irradiance","keywords":["light","directional","punctual"]},"githubUrl":"https://github.com/threeify/threeify/blob/master/src//examples/lights/directional/index.ts","bundleSize":124276,"minifiedSize":85839,"compressedFileSize":17707}

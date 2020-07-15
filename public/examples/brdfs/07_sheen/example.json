@@ -1,1 +1,0 @@
-{"slug":"brdf_sheen","theme":"dark","en":{"name":"Sheen BRDF","description":"A test of a Charlie-based Sheen BRDF.  Sheen is useful rendering realistic cloth.","keywords":["brdf","sheen","fabric","cloth"]},"githubUrl":"https://github.com/threeify/threeify/blob/master/src//examples/brdfs/07_sheen/index.ts","bundleSize":117461,"minifiedSize":81279,"compressedFileSize":16141}
