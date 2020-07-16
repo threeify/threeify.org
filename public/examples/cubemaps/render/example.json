@@ -1,0 +1,1 @@
+{"slug":"cubemap_render","en":{"name":"Render to Cube Map Textures","description":"Rendering to the faces of a cube map on each frame.","keywords":["render-to-texture","cubemap"]},"githubUrl":"https://github.com/threeify/threeify/blob/master/src//examples/cubemaps/render/index.ts","bundleSize":110834,"minifiedSize":71017,"compressedFileSize":14265}
