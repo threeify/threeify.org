@@ -43,18 +43,15 @@ export default function Example({ example }) {
       <p className="example-p">
         <a href={example.githubUrl} target="_blank">
           Source Code on Github
-              </a>
+        </a>
       </p>
       <p className="example-p">
         bundle: {formatBytes(example.bundleSize)}, minified:{" "}
         {formatBytes(example.minifiedSize)}, brotli:{" "}
         {formatBytes(example.compressedSize)}
       </p>
-      <canvas
-        id="framebuffer"
-        width={800}
-        height={800}
-      />
+      <div className="description" id="text"></div>
+      <canvas id="framebuffer" width={800} height={800} />
       <script async type="module" src={indexJs}></script>
     </Layout>
   );
