@@ -135,22 +135,24 @@ async function main() {
           fs.writeFileSync(outputJson, JSON.stringify(json));
 
           if (program.screenshot) {
-            await page.goto(`http://localhost:8000/examples?name=${name}`);
+            if (json.thumbnail !== "manual") {
+              await page.goto(`http://localhost:8000/examples?name=${name}`);
 
-            let canvas = null;
-            while (canvas === null) {
-              canvas = await page.$("canvas");
-              await sleep(200);
+              let canvas = null;
+              while (canvas === null) {
+                canvas = await page.$("canvas");
+                await sleep(200);
+              }
+
+              await sleep(500);
+
+              const screenshotPath = `${program.outDir}/assets/thumbnails/${json.slug}.png`;
+              const screenshotDir = path.dirname(screenshotPath);
+              if (!fs.existsSync(screenshotDir)) {
+                makeDir.sync(screenshotDir);
+              }
+              await canvas.screenshot({ path: screenshotPath });
             }
-
-            await sleep(500);
-
-            const screenshotPath = `${program.outDir}/assets/thumbnails/${json.slug}.png`;
-            const screenshotDir = path.dirname(screenshotPath);
-            if (!fs.existsSync(screenshotDir)) {
-              makeDir.sync(screenshotDir);
-            }
-            await canvas.screenshot({ path: screenshotPath });
           }
         }
       } catch (e) {
