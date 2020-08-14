@@ -162,7 +162,7 @@ async function main() {
     await browser.close();
   });
 
-  const brotliExtensions = ["obj", "hdr", "mtl", "ply", "glTF", "glb"];
+  const brotliExtensions = ["obj", "hdr", "mtl", "ply", "glTF", "glb", "hdr"];
   const assetsGlob = `${assetDir}/**/*.*`;
   glob(assetsGlob, {}, function (er, inputFileNames) {
     inputFileNames.forEach(async (inputFileName) => {
