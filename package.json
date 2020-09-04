@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "sync": "node --experimental-modules sync.mjs -i ../threeify -o ./public -m -c -v 0"
+    "sync": "node --experimental-modules sync.mjs -i ../threeify -o ./public -m -c -v 1"
   },
   "dependencies": {
     "bootstrap": "^4.5.0",
