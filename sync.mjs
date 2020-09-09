@@ -25,6 +25,12 @@ const rootDir = path.join(program.inDir, "./dist");
 const sourceDir = path.join(program.inDir, "./src");
 const assetDir = path.join(program.inDir, "./assets");
 
+function log(verbosity, text) {
+  //if (verbosity >= program.verboseLevel) {
+  console.log(text);
+  //}
+}
+
 async function asyncCommandLine(commandLine) {
   return new Promise(function (resolve, reject) {
     exec(commandLine, (error, stdout, stderr) => {
@@ -91,33 +97,40 @@ async function main() {
 
         //const outputFileName = `${outputDirectory}/${sourceBaseName}.${sourceExtension}`;
         if (!fs.existsSync(outputDirectory)) {
+          log(1, `making output directory: ${outputDirectory}`);
           makeDir.sync(outputDirectory);
         }
+        log(1, `bundling: ${inputFileName} -> ${bundledFileName}`);
         await bundle(inputFileName, bundledFileName);
         const bundledFileSize = fileSize(bundledFileName);
         inputFileName = bundledFileName;
         let minifiedFileSize = undefined;
         if (program.minify) {
+          log(1, `minifying: ${inputFileName} -> ${minifiedFileName}`);
           await minify(inputFileName, minifiedFileName);
           fs.unlinkSync(inputFileName);
           inputFileName = minifiedFileName;
           minifiedFileSize = fileSize(minifiedFileName);
         } else {
+          log(1, `renaming: ${inputFileName} -> ${minifiedFileName}`);
           fs.renameSync(inputFileName, minifiedFileName);
         }
 
         const compressedFileName = inputFileName + ".br";
         if (fs.existsSync(compressedFileName)) {
+          log(1, `removing existing brotli file: ${compressedFileName}`);
           fs.unlinkSync(compressedFileName);
         }
         let compressedFileSize = undefined;
         if (program.compress) {
+          log(1, `brotli compressing: ${inputFileName}`);
           await compress(inputFileName);
           compressedFileSize = fileSize(inputFileName + ".br");
         }
 
         const sourceJson = "./" + path.join(sourceDirectory, "example.json");
         if (fs.existsSync(sourceJson)) {
+          log(1, `reading example json: ${sourceJson}`);
           const outputJson = path.join("./" + outputDirectory, "example.json");
           const json = JSON.parse(fs.readFileSync(sourceJson));
           json.githubUrl =
@@ -132,25 +145,33 @@ async function main() {
           if (compressedFileSize) {
             json.compressedFileSize = compressedFileSize;
           }
+          log(1, `writing example json: ${outputJson}`);
           fs.writeFileSync(outputJson, JSON.stringify(json));
 
           if (program.screenshot) {
+            log(1, `taking screenshot of example: ${name}`);
             if (json.thumbnail !== "manual") {
-              await page.goto(`http://localhost:8000/examples?name=${name}`);
+              const examplePageUrl = `http://localhost:8000/examples?name=${name}`;
+              log(1, `going to example page: ${examplePageUrl}`);
+              await page.goto(examplePageUrl);
 
+              log(1, `waiting for canvas to be created`);
               let canvas = null;
               while (canvas === null) {
                 canvas = await page.$("canvas");
                 await sleep(200);
               }
 
+              log(1, `found canvas`);
               await sleep(500);
 
               const screenshotPath = `${program.outDir}/assets/thumbnails/${json.slug}.png`;
               const screenshotDir = path.dirname(screenshotPath);
               if (!fs.existsSync(screenshotDir)) {
+                log(1, `taking directory for screenshot: ${screenshotDir}`);
                 makeDir.sync(screenshotDir);
               }
+              log(1, `taking screenshot: ${screenshotPath}`);
               await canvas.screenshot({ path: screenshotPath });
             }
           }
@@ -177,21 +198,29 @@ async function main() {
       const outputFileName = `${outputDirectory}/${baseName}${extension}`;
 
       if (!fs.existsSync(outputDirectory)) {
+        log(1, `creating output directory: ${outputDirectory}`);
         makeDir.sync(outputDirectory);
       }
       if (fs.existsSync(outputFileName)) {
+        log(1, `removing existing output file: ${outputFileName}`);
         fs.unlinkSync(outputFileName);
       }
+      log(1, `copying output file: ${outputFileName}`);
       fs.copyFileSync(inputFileName, outputFileName);
 
       if (brotliExtensions.indexOf(extension.slice(1)) >= 0) {
         const compressedFileName = outputFileName + ".br";
         if (fs.existsSync(compressedFileName)) {
+          log(1, `removing existing brotli file: ${compressedFileName}`);
           fs.unlinkSync(compressedFileName);
         }
         if (program.compress) {
+          log(1, `creating brotli output: ${compressedFileName}`);
           await compress(outputFileName);
+          log(1, `brotli created!`);
         }
+      } else {
+        log(1, `skipping brotli output creation, (${extension}) not supported`);
       }
     });
   });
