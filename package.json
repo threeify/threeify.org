@@ -21,7 +21,7 @@
     "make-dir": "^3.1.0",
     "puppeteer": "^5.0.0",
     "rollup": "^2.21.0",
-    "terser": "^4.8.0",
+    "terser": "^4.8.1",
     "threeify-glsl-transpiler": "^1.1.12"
   }
 }
